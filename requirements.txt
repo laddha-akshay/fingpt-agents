@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pandas
+sentence-transformers
+faiss-cpu
+textblob
+openai
+python-dotenv
+jinja2
