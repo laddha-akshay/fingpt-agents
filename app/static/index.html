@@ -2,19 +2,34 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>FinGPT Agents Demo</title>
+  <title>FinGPT Agents - Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 28px; }
+    button { padding: 8px 12px; border-radius: 6px; }
+    input[type="file"] { margin-right: 8px; }
+    pre { background:#f4f4f4; padding:12px; border-radius:6px; }
+  </style>
 </head>
 <body>
-  <h2>FinGPT Agents - Demo</h2>
-  <p>Click to run the demo pipeline</p>
-  <button onclick="run()">Run pipeline</button>
-  <pre id="out"></pre>
-  <script>
-    async function run(){
-      const res = await fetch('/run');
-      const j = await res.json();
-      document.getElementById('out').innerText = JSON.stringify(j, null, 2);
-    }
-  </script>
+  <h1>FinGPT Agents - Demo</h1>
+
+  <p>Upload a news or tweets file (JSONL or TXT). File should contain one article per line or plain text.</p>
+
+  <div>
+    <input id="file" type="file" accept=".jsonl,.txt" />
+    <button id="uploadBtn">Upload</button>
+    <span id="uploadStatus" style="margin-left:12px"></span>
+  </div>
+
+  <hr/>
+
+  <p>Or run the demo pipeline on the included sample data</p>
+  <button id="runBtn">Run pipeline</button>
+  <div style="margin-top:12px">
+    <h3>Output</h3>
+    <pre id="output">No output yet</pre>
+  </div>
+
+  <script src="/static/app.js"></script>
 </body>
 </html>
