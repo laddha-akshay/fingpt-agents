@@ -5,3 +5,8 @@ __pycache__/
 .DS_Store
 .env
 fingpt-agents_recruiter_ready.zip
+
+# Ignore local FAISS index and metadata (recreated by the app)
+app/data/
+*.faiss
+app/data/meta.json

@@ -3,31 +3,52 @@
 <head>
   <meta charset="utf-8"/>
   <title>FinGPT Agents - Demo</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 28px; }
-    button { padding: 8px 12px; border-radius: 6px; }
-    input[type="file"] { margin-right: 8px; }
-    pre { background:#f4f4f4; padding:12px; border-radius:6px; }
-  </style>
+  <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-  <h1>FinGPT Agents - Demo</h1>
+  <div class="container">
+    <header>
+      <h1>FinGPT Agents</h1>
+      <div class="actions">
+        <button id="themeToggle" class="secondary">Toggle Theme</button>
+      </div>
+    </header>
 
-  <p>Upload a news or tweets file (JSONL or TXT). File should contain one article per line or plain text.</p>
+    <div class="card">
+      <h2>Upload News or Tweets</h2>
+      <p class="muted">Accepts JSONL or TXT. JSONL lines should include fields like ticker, title, text. TXT uses one article per line.</p>
+      <div class="row">
+        <input id="file" type="file" accept=".jsonl,.txt" />
+        <button id="uploadBtn">Upload</button>
+        <span id="uploadStatus" class="muted"></span>
+      </div>
+    </div>
 
-  <div>
-    <input id="file" type="file" accept=".jsonl,.txt" />
-    <button id="uploadBtn">Upload</button>
-    <span id="uploadStatus" style="margin-left:12px"></span>
-  </div>
+    <div class="card">
+      <h2>Demo Pipeline</h2>
+      <p class="muted">Runs on sample data to compute sentiment, aggregate signals, generate a report, and populate the index.</p>
+      <div class="row">
+        <button id="runBtn">Run Pipeline</button>
+        <button id="resetBtn" class="secondary">Reset Index</button>
+      </div>
+      <div style="margin-top:12px">
+        <h3>Output</h3>
+        <pre id="output">No output yet</pre>
+      </div>
+    </div>
 
-  <hr/>
-
-  <p>Or run the demo pipeline on the included sample data</p>
-  <button id="runBtn">Run pipeline</button>
-  <div style="margin-top:12px">
-    <h3>Output</h3>
-    <pre id="output">No output yet</pre>
+    <div class="card">
+      <h2>Ask a Financial Question</h2>
+      <p class="muted">Example: "Key risks and opportunities for AAPL?". Uses retrieved context from uploaded or sample news.</p>
+      <div class="row">
+        <input id="queryInput" type="text" placeholder="e.g., Key risks and opportunities for AAPL?" style="flex:1;" />
+        <button id="askBtn">Ask</button>
+      </div>
+      <div style="margin-top:12px">
+        <h3>Answer</h3>
+        <div id="qaOutput" class="muted">No question asked yet</div>
+      </div>
+    </div>
   </div>
 
   <script src="/static/app.js"></script>
