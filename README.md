@@ -58,6 +58,7 @@ source venv/bin/activate
 
 ### Install dependencies  
 ```bash
+pip install -U pip
 pip install -r requirements.txt
 ```
 
@@ -84,32 +85,4 @@ The system returns:
 • Highlights of risks and opportunities  
 • Confidence score  
 
-## Recruiter Value  
-This project demonstrates your ability to:  
-• Build retrieval augmented systems for finance  
-• Work with embeddings and vector search  
-• Build agent style workflows  
-• Design backend systems with FastAPI  
-• Deliver clean portfolio ready AI demos  
-• Combine finance understanding with applied AI engineering
-
-## Folder Structure  
-```
-app/
-  main.py
-  ingestion.py
-  embeddings.py
-  indexer.py
-  agent.py
-  static/
-      index.html
-      app.js
-sample_data/
-requirements.txt
-README.md
-```
-
-## Notes  
-This is a demo system using synthetic or user provided financial text files.  
-No real trading or investment advice is produced.
 
