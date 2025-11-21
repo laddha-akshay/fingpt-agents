@@ -1,6 +1,6 @@
-from fastapi import FastAPI, UploadFile, File
-from fastapi.staticfiles import StaticFiles
+from fastapi import FastAPI, UploadFile, File, Query
 from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.staticfiles import StaticFiles
 import os
 from .ingestion import load_logs
 from .embeddings import Embedder
