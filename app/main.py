@@ -1,16 +1,15 @@
 from fastapi import FastAPI, UploadFile, File, Query
-from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse, JSONResponse
 import os
-from .ingestion import load_logs
-from .embeddings import Embedder
-from .indexer import FaissIndexer
-from .query_agent import explain_incidents
-import numpy as np
+from pathlib import Path
+
+# compute static dir relative to this file
+static_dir = Path(__file__).resolve().parent / "static"
 
 app = FastAPI()
-static_dir = os.path.join(os.path.dirname(__file__), "static")
-app.mount("/static", StaticFiles(directory=static_dir), name="static")
+app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
+
 
 embedder = Embedder()
 dim = embedder.model.get_sentence_embedding_dimension()
