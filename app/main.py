@@ -3,6 +3,11 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, JSONResponse
 import os
 from pathlib import Path
+from .ingestion import load_logs
+from .embeddings import Embedder
+from .indexer import FaissIndexer
+from .query_agent import explain_incidents
+import numpy as np
 
 # compute static dir relative to this file
 static_dir = Path(__file__).resolve().parent / "static"
